@@ -7,7 +7,7 @@ define('NMEA_LATENCY', 2);        // Empirical GPS latency in seconds
 
 if (date('Y') < 2016 && $gps_src = fopen(NMEA_DEV, 'r'))
   while (date('Y') < 2016 && !feof($gps_src) && false !== ($nmea_line = fgets($gps_src)))
-    if (preg_match('/^\$GPRMC\,(\d{6})\.\d+\,A\,.*\,(\d{6})\,/', $nmea_line, $mline)) {
+    if (preg_match('/^\$GPRMC\,(\d{6}).*\,(\d{6})\,/', $nmea_line, $mline)) {
       fclose($gps_src);
 
       $oDate = DateTime::createFromFormat('Hisdmy', $mline[1].$mline[2]);
