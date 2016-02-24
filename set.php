@@ -14,6 +14,6 @@ if (date('Y') < 2016 && $gps_src = fopen(NMEA_DEV, 'r'))
       $oDate->add(new DateInterval('PT'.(date('Z') + NMEA_LATENCY).'S'));
       $dttm = $oDate->format('j M Y H:i:s');
 
-     `date -s '$dttm'`;
+      `date -s '$dttm'`;
       exit();
-  }
+    }
